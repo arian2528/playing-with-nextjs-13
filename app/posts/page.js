@@ -2,7 +2,7 @@ import '../../styles/globals.css'
 import Link from 'next/link'
 import { PrismaClient } from "@prisma/client";
 
-async function getData() {
+async function getPosts() {
  const prisma = new PrismaClient();
   const posts = await prisma.post.findMany();
 
@@ -10,7 +10,7 @@ async function getData() {
 }
 
 export default async function Page() {
-  const data = await getData();
+  const data = await getPosts();
   return (
     <p>
       {data[0].title}
