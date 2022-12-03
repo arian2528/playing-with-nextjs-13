@@ -1,6 +1,7 @@
 import '../../styles/globals.css'
 import Link from 'next/link'
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
+import Refresh from './refresh';
 
 async function getPosts() {
  const prisma = new PrismaClient();
@@ -12,8 +13,11 @@ async function getPosts() {
 export default async function Page() {
   const data = await getPosts();
   return (
-    <p>
-      {data[0].title}
-    </p>
+    <div>
+      <Refresh />
+      <p>
+        {data[0].title}
+      </p>
+    </div>
   );
 }
