@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { addPost } from './addPost.telefunc'
+import { saveNewPost } from './Post.telefunc'
 import { config } from 'telefunc/client'
 import { useRouter } from 'next/navigation';
 
@@ -24,7 +24,7 @@ export default function BlogPostCreationForm() {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    addPost({title: title, content: content});
+    saveNewPost(title, content);
 
     // Clear the form fields
     setTitle('');
